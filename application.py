@@ -142,19 +142,19 @@ def addbill():
         spending_1.user_id = 1
         spending_1.amt_spent = int(form.user_1_spending.data * 100)
         spending_1.detail = detail.id
-        print(".....spending objcts created")
+
         # Adding the spending objects to the database
         sql_sess.add(spending_0)
         sql_sess.add(spending_1)
-        print(".....spending objects added, about to commit and close")
+
         sql_sess.commit()
         sql_sess.close()
-        print(".....session commit and close, attempting to redirct")
+
         # Creating flash message for adding bill
-        # flash("Bill Added!", 'success')
+        flash("Bill Added!", 'success')
 
         # After POST writes to database, return home from '/addbill'
-        return redirect(url_for('about'))
+        return redirect(url_for('home'))
 
     # Pass form object to html page
     return render_template('add.html', form=form)
