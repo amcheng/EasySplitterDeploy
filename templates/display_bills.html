@@ -1,0 +1,20 @@
+<h1>
+    Spending for Alex
+</h1>
+<table class ="table table-striped">
+    <tr>
+        <th>Restaurant</th>
+        <th>Amount Spent</th>
+        <th>Date</th>
+        <th>Notes</th>
+    </tr>
+    {% for bill in bill_qry %}
+    <tr>
+        <th>{{bill.BillDetail.restaurant}}</th>
+        <th>${{bill.BillSpending.amt_spent/100}}</th>
+        <th>{{bill.BillDetail.date}}</th>
+        <th>{{bill.BillDetail.notes}}</th>
+    </tr>
+    {% endfor %}
+
+</table>

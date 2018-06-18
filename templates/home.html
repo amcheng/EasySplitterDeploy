@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="jumbotron text-center">
+    <h1>Welcome to Easy Splitter</h1>
+    <p class="lead"> Spending tracker for Alex and Jenn </p>
+
+</div>
+
+<div class="container">
+    <h3>{{spent_more}}</h3>
+    <br/>
+</div>
+
+<div class="container">
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="#alex" role="tab" data-toggle="tab">Alex</a>
+    </li>
+    <li>
+        <a href="#jenn" role="tab" data-toggle="tab">Jenn</a>
+    </li>
+</ul>
+<div class="tab-content card">
+    <div id="alex" role="tabpanel" class="tab-pane fade in active">
+        <br/>
+        Alex has spent {{two_weeks_spending_list[0]/100}} in the last two weeks
+        {% with bill_qry=bill_qry_list[0] %}
+        {% include 'display_bills.html' %}
+        {% endwith %}
+    </div>
+    <div id="jenn" role="tabpanel" class="tab-pane fade">
+        <br/>
+        Jenn has spent {{two_weeks_spending_list[1]/100}} in the last two weeks
+        {% with bill_qry=bill_qry_list[1] %}
+        {% include 'display_bills.html' %}
+        {% endwith %}
+    </div>
+</div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+</div>
+{% endblock %}
