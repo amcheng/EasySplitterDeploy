@@ -62,6 +62,7 @@ sql_sess = SQL_Session()
 #     add_sample_bills(sql_sess)
 
 # Creating home route, includes SQLAlchemy queries for displaying data
+@application.route('/home')
 @application.route('/')
 def home():
     # Query for spending to display bills for each user
@@ -153,7 +154,6 @@ def addbill():
         # Creating flash message for adding bill
         flash("Bill Added!", 'success')
 
-        # After POST writes to database, return home from '/addbill'
         return redirect(url_for('home'))
 
     # Pass form object to html page
