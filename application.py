@@ -152,7 +152,7 @@ def addbill():
         sql_sess.close()
 
         # Creating flash message for adding bill
-        flash("Bill Added!", 'success')
+        # flash("Bill Added!", 'success')
 
         # return redirect('/about')
 
