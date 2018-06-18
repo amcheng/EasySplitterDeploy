@@ -154,7 +154,7 @@ def addbill():
         # flash("Bill Added!", 'success')
 
         # After POST writes to database, return home from '/addbill'
-        return redirect(url_for('home'))
+        # return redirect(url_for('about'))
 
     # Pass form object to html page
     return render_template('add.html', form=form)
