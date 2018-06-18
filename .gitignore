@@ -1,6 +1,8 @@
 # virtual environment
 env/
 
+.idea/
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
