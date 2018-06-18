@@ -154,7 +154,7 @@ def addbill():
         # Creating flash message for adding bill
         flash("Bill Added!", 'success')
 
-        return redirect('/')
+        return redirect(url_for('about'))
 
     # Pass form object to html page
     return render_template('add.html', form=form)
