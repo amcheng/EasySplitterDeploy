@@ -77,14 +77,14 @@ def home():
     two_weeks_ago = (datetime.datetime.today() - datetime.timedelta(days=14)).strftime('%Y-%m-%d')
 
     # Query for spending in the last two weeks
-    two_weeks_spending_list = [0,0]
-    for i in range(0, 2):
-        spending = sql_sess.query(func.sum(BillSpending.amt_spent)). \
-            join(BillDetail, BillSpending.detail == BillDetail.id). \
-            filter(BillSpending.user_id == i). \
-            filter(BillDetail.date >= two_weeks_ago).scalar()
-        if spending:
-            two_weeks_spending_list[i] = spending
+    # two_weeks_spending_list = [0, 0]
+    # for i in range(0, 2):
+    #     spending = sql_sess.query(func.sum(BillSpending.amt_spent)). \
+    #         join(BillDetail, BillSpending.detail == BillDetail.id). \
+    #         filter(BillSpending.user_id == i). \
+    #         filter(BillDetail.date >= two_weeks_ago).scalar()
+    #     if spending:
+    #         two_weeks_spending_list[i] = spending
 
     # Calculate how much each person spent on the other, recycles query for general bill spending
     user_0_cover_spending = 0
@@ -107,7 +107,7 @@ def home():
     # Pass information to HTML files for display
     return render_template(
         'home.html', bill_qry_list=bill_qry_list,
-        spent_more=spent_more, two_weeks_spending_list=two_weeks_spending_list)
+        spent_more=spent_more)#, two_weeks_spending_list=two_weeks_spending_list)
 
 
 # Creating about route
