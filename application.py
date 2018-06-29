@@ -72,6 +72,7 @@ def home():
             sql_sess.query(BillSpending, BillDetail).join(BillDetail, BillSpending.detail == BillDetail.id).
             filter(BillSpending.user_id == i).
             order_by(desc(BillDetail.date)))
+    sql_sess.close()
 
     # Calculate when two weeks ago was for calculating spending in the last two weeks
     two_weeks_ago = (datetime.datetime.today() - datetime.timedelta(days=14)).strftime('%Y-%m-%d')
