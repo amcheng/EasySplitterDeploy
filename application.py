@@ -47,7 +47,7 @@ class BillForm(Form):
 
 
 # MySQL database login details, username, password, and address from login.py.
-connection_string = 'mysql+pymysql://' + login.database_str
+connection_string = 'sqlite:///alex_jenn.db' #'mysql+pymysql://' + login.database_str
 
 # Connect to database via engine creation.
 engine = create_engine(connection_string, echo=False)
@@ -95,7 +95,7 @@ def home():
         if bills.BillDetail.who_paid == 1:
             user_1_cover_spending += bills.BillSpending.amt_spent
 
-    for bills in bill_qry_list[0]:
+    for bills in bill_qry_list[1]:
         if bills.BillDetail.who_paid == 0:
             user_0_cover_spending += bills.BillSpending.amt_spent
 
